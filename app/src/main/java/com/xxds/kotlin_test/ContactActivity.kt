@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 
 import kotlinx.android.synthetic.main.activity_contact.*
 import java.util.jar.Manifest
@@ -43,6 +45,7 @@ class ContactActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_contact, menu)
+
         return true
     }
 
@@ -79,19 +82,16 @@ class ContactActivity : AppCompatActivity() {
             val  contactId = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
             val  name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
 
-
             println(contactId)
+
         }
 
     }
-
     companion object {
 
         val permissons = arrayOf(
 //            android.Manifest.permission.READ_CONTACTS
             android.Manifest.permission.WRITE_CONTACTS
-
         )
-
     }
 }
